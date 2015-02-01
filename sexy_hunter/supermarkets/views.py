@@ -1,15 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from supermarkets.models import Item
+from supermarkets.models import Item, Supermarket
 
 
 def supermarket_list(request):
     all_of_the_items = Item.objects.order_by('supermarket')  
-    return render(request, 'home.html', { all_of_the_items : 'items'})
+    all_of_them = Supermarket.objects.all()
+    return render(request, 'home.html', {'supermarkets' : all_of_them})
 
 def add_supermarket(request):
-    new_market_name = request.POST['supermarket_name']
-    new_market_opening_hours = request.POST['opening_hours']
-    supermarket = Supermarket.objects.create(new_market_opening_hours, new_market_name)
-    return render(request, 'add_supermarket.html',)
+    Supermarket.objects.create(
+            super_name = request.POST.get('supermarket_name'), 
+            opening_hours = request.POST.get('opening_hours'))
+    return redirect('/')
 # Create your views here.

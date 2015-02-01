@@ -1,16 +1,21 @@
+{% extends 'base.html' %}
 
-<html>
-    <head>
-        <title>Sexy Hunter</title>
-    </head>
-
-    <body>
-        {% for item in items %} 
-        {{ item.name }}
+{% block header_text %}
+    Give me some stats
+{% endblock %}
+{% block table %}
+    <table id='id_list_supermarkets'>
+        {% for item in supermarkets %}
+        <tr><td>{{ item.super_name }}</td>
+            <td>{{ item.opening_hours }}</td></tr>
         {% endfor %}
-        <h1>The offering is meager today</h1>
-        <table id='id_list_supermarkets'>
-
-        </table>
-    </body>
-</html>
+    </table>
+{% endblock %}
+{% block action %}
+    <form method='POST' action='/add_page/'>
+    <input name='supermarket_name' placeholder='Enter the name'>
+    <input name='opening_hours' placeholder='Opening hours'>
+    <input type='submit' value='Submit'>
+    {% csrf_token %}
+    </form>
+{% endblock %}

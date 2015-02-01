@@ -3,7 +3,7 @@ from django.db import models
 #which has a list of products
 
 class Supermarket(models.Model):
-    name = models.CharField(max_length = 30)
+    super_name = models.CharField(max_length = 30)
     opening_hours = models.CharField(max_length = 100)
     pass
 
