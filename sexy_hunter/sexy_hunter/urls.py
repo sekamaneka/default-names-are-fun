@@ -8,5 +8,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'supermarkets.views.supermarket_list', name='home'),
-    url(r'^add_page/$', 'supermarkets.views.add_supermarket', name='add_page'),    
+    url(r'^add_page/$', 'supermarkets.views.add_supermarket', name='add_page'),
+    url(r'^add_item/$', 'supermarkets.views.add_item', name='add_item'),
 )

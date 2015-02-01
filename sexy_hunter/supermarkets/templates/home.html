@@ -4,17 +4,40 @@
     Give me some stats
 {% endblock %}
 {% block table %}
+    <h3>Here you can see the database<h4>
     <table id='id_list_supermarkets'>
         {% for item in supermarkets %}
         <tr><td>{{ item.super_name }}</td>
             <td>{{ item.opening_hours }}</td></tr>
         {% endfor %}
     </table>
+    <h4>Here i can see my items</h4>
+    <table id='id_items'>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.i_name }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.category }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
 {% endblock %}
 {% block action %}
+    <h2>Give me some supermarkets </h2>
     <form method='POST' action='/add_page/'>
     <input name='supermarket_name' placeholder='Enter the name'>
     <input name='opening_hours' placeholder='Opening hours'>
+    <input type='submit' value='Submit'>
+    {% csrf_token %}
+    </form>
+{% endblock %}
+{% block action2 %}
+    <h2>Give me some items </h2>
+    <form method='POST' action='/add_item/'>
+    <input name='item_name' placeholder='Enter the name'>
+    <input name='item_price' placeholder='Enter the price'>
+    <input name='category' placeholder='Enter the category'>
     <input type='submit' value='Submit'>
     {% csrf_token %}
     </form>
