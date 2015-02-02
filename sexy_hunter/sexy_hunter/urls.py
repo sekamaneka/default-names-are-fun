@@ -8,9 +8,12 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'supermarkets.views.supermarket_list', name='home'),
-    url(r'^add_page/$', 'supermarkets.views.add_supermarket', name='add_page'),
-    url(r'^add_item/$', 'supermarkets.views.add_item', name='add_item'),
     url(r'^supermarkets/(?P<anyname>.*)/$', 'supermarkets.views.current_supermarket'),
     url(r'^add_supermarket/$', 'supermarkets.views.add_supermarket_page',
-    name='add_supermarket') 
+    name='add_supermarket'),
+    # views for POST requests
+    
+    url(r'^add_new_supermarket/$', 'supermarkets.views.add_supermarket', name='add_page'),
+    url(r'^add_item/$', 'supermarkets.views.add_item', name='add_item'),
+
 )

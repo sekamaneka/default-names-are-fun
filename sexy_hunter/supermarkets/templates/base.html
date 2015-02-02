@@ -8,47 +8,38 @@
         <link href="/static/bootstrap/css/bootstrap-responsive.css"rel="stylesheet">
     </head>
     <body>
-        <div class='container'>
-            <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class='container-fluid'>
+
+            <div class="navbar navbar-inverse navbar-static-top">
                 <div class="navbar-inner">
-                    <div class="container">
-                        <button type="button" class="btn btn-navbar" 
+                    <button type="button" class="btn btn-navbar" 
                         data-toggle="collapse" data-target=".nav-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        </button>
-                        <a class="brand" href="/">Home</a>
-                        <div class="nav-collapse collapse">
-                            <ul class="nav pull-right">
-                                <li class="navbar-text">Welcome<li>
-                                <li><a href="/logout">Logout</a></li>
-                                <li><a href="/register/">Register</a></li>
-                                <li><a href="/login">Login</a></li>
-                            </ul>
-                            <ul class="nav">
+                    </button>
+                    <a class="brand" href="/">Home</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right">
+                            <li class="navbar-text">Welcome<li>
+                            <li><a href="/logout">Logout</a></li>
+                            <li><a href="/register/">Register</a></li>
+                            <li><a href="/login">Login</a></li>
+                        </ul>
+                        <ul class="nav">
+                                <li><a
+                                    href='/add_supermarket/'>ADHD</a></li>
                                 <li><a href="/about/">About</a></li>
-                            </ul>
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
+
             <h1><p class='text-center'>{% block title %}{% endblock %}</p></h1>
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-md-6 col-md-offset-3'>
-                        <div class='text-center'>
-                            {% block action %}
-                        
-                            {% endblock %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='jumbotron'>
-                    {% block table %}
-                    {% endblock %}
-            </div>
+            {% block action %}
+            {% endblock %}
+            {% block table %}
+            {% endblock %}
         </div>
         <script src="/static/bootstrap/js/jquery-2.0.3.min.js"></script>
         <script src="/static/bootstrap/js/bootstrap.min.js"></script>

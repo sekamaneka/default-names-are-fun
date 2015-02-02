@@ -8,11 +8,11 @@
                 <td>Name</td>
                 <td>Oeffnungszeiten</td>
             </tr>
-                {% for item in supermarkets %}
-                    <td><a href = '/supermarkets/{{ item.super_name }}'>{{ item.super_name }}</a></td>
-                    <td>{{ item.opening_hours }}</td>
+            {% for item in supermarkets %}
+                <td><a href = '/supermarkets/{{ item.super_name }}'>{{ item.super_name }}</a></td>
+                <td>{{ item.opening_hours }}</td>
             </tr>
-                {% endfor %}
+            {% endfor %}
         </table>
 {% endblock %}
 
