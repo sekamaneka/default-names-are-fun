@@ -6,57 +6,51 @@
         <link href="/static/bootstrap/css/bootstrap-fluid-adj.css" rel="stylesheet">
         <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="/static/bootstrap/css/bootstrap-responsive.css"rel="stylesheet">
-              
     </head>
-
     <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <button type="button" class="btn btn-navbar" 
+        <div class='container'>
+            <div class="navbar navbar-default navbar-fixed-bottom">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <button type="button" class="btn btn-navbar" 
                         data-toggle="collapse" data-target=".nav-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>
-                    <a class="brand" href="/">Home</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav pull-right">
-                            <li class="navbar-text">Welcome Summoner<li>
-                            <li><a href="/logout">Logout</a></li>
-                            <li><a href="/register/">Register</a></li>
-                            <li><a href="/login">Login</a></li>
-                        </ul>
-                        <ul class="nav">
-                            <li><a href="/about/">About</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-    </div>
-    <div class='container'>
-            <div class='row-fluid'>
-                <div class='col-md-6 col-md-offset-3'>
-                    <div class='text-center'>
-                        <div class='hero-unit'>
-                        {% block action %}
-                        {% endblock %}
-                        </div>
-                        <div class='hero-unit'>
-                        {% block action2 %}
-                        {% endblock %}
+                        </button>
+                        <a class="brand" href="/">Home</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right">
+                                <li class="navbar-text">Welcome<li>
+                                <li><a href="/logout">Logout</a></li>
+                                <li><a href="/register/">Register</a></li>
+                                <li><a href="/login">Login</a></li>
+                            </ul>
+                            <ul class="nav">
+                                <li><a href="/about/">About</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class='row'>
-                <div class='col-md-6 col-md-offset-3'>
+            <h1><p class='text-center'>{% block title %}{% endblock %}</p></h1>
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-md-6 col-md-offset-3'>
+                        <div class='text-center'>
+                            {% block action %}
+                        
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='jumbotron'>
                     {% block table %}
                     {% endblock %}
-                </div>
             </div>
-    </div>
-    <script src="/static/bootstrap/js/jquery-2.0.3.min.js"></script>
-    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+        </div>
+        <script src="/static/bootstrap/js/jquery-2.0.3.min.js"></script>
+        <script src="/static/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-
+from supermarkets.models import Supermarket  
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'sexy_hunter.views.home', name='home'),
@@ -10,4 +10,7 @@ urlpatterns = patterns('',
     url(r'^$', 'supermarkets.views.supermarket_list', name='home'),
     url(r'^add_page/$', 'supermarkets.views.add_supermarket', name='add_page'),
     url(r'^add_item/$', 'supermarkets.views.add_item', name='add_item'),
+    url(r'^supermarkets/(?P<anyname>.*)/$', 'supermarkets.views.current_supermarket'),
+    url(r'^add_supermarket/$', 'supermarkets.views.add_supermarket_page',
+    name='add_supermarket') 
 )

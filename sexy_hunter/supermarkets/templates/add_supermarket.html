@@ -1,11 +1,12 @@
-<html>
-    <head>
-        <title>Yo</title>
-    </head>
-    <body>
-        <form method='POST' action='/add_supermarket'>
-            <input name='supermarket_name' placeholder='Enter the name'>
-            <input name='opening_hours' placeholder='Opening hours'>
-            {% csrf_token %}
-        </form>
-    </body>
+{% extends 'base.html' %}
+
+{% block action %}
+    <h2>Give me some supermarkets </h2>
+    <form method='POST' action='/add_page/'>
+    <input name='supermarket_name' placeholder='Enter the name'>
+    <input name='opening_hours' placeholder='Opening hours'>
+    <input type='submit' value='Submit'>
+    {% csrf_token %}
+    </form>
+{% endblock %}
+

@@ -6,6 +6,8 @@ class Supermarket(models.Model):
     super_name = models.CharField(max_length = 30)
     opening_hours = models.CharField(max_length = 100)
 
+    def __str__(self):
+        return self.super_name
 
 class Item(models.Model):
     supermarket = models.ForeignKey(Supermarket)
@@ -13,5 +15,7 @@ class Item(models.Model):
     price = models.CharField(max_length = 30)
     category = models.CharField(max_length = 20)
 
+    def __str__(self):
+        return self.i_name
     
 # Create your models here.
