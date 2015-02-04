@@ -9,7 +9,6 @@
     </head>
     <body>
         <div class='container-fluid'>
-
             <div class="navbar navbar-inverse navbar-static-top">
                 <div class="navbar-inner">
                     <button type="button" class="btn btn-navbar" 
@@ -34,12 +33,21 @@
                     </div>
                 </div>
             </div>
-
-            <h1><p class='text-center'>{% block title %}{% endblock %}</p></h1>
-            {% block action %}
-            {% endblock %}
-            {% block table %}
-            {% endblock %}
+            <div class='row-fluid'>
+                <div class='span2'>
+                    <div class='hero-unit'>
+                        <h5>stuff</h5>
+                        <h5>nore stuf</h5>
+                    </div>
+                </div>
+                <div class='span10'>
+                    <h1><p class='text-center'>{% block title %}{% endblock %}</p></h1>
+                    {% block action %}
+                    {% endblock %}
+                    {% block table %}
+                    {% endblock %}
+                </div>
+            </div>
         </div>
         <script src="/static/bootstrap/js/jquery-2.0.3.min.js"></script>
         <script src="/static/bootstrap/js/bootstrap.min.js"></script>

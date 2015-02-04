@@ -4,12 +4,10 @@ from supermarkets.models import Item, Supermarket
 
 
 def supermarket_list(request):
-    placeholder_supermarket = Supermarket.objects.first() 
     all_of_them = Supermarket.objects.all()
     all_of_items = Item.objects.all()
     return render(request, 'home.html', {'supermarkets' : all_of_them,
-                                         'items' : all_of_items,
-                                         'super' : placeholder_supermarket})
+                                         'items' : all_of_items})
 
 def add_supermarket(request):
     Supermarket.objects.create(
