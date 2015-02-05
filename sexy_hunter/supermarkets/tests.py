@@ -26,6 +26,7 @@ class AddSupermarketTest(TestCase):
     
     def test_add_supermarket(self):
         request = HttpResponse()
+        request.META = {}
         response = add_supermarket_page(request)
         expected_html = render_to_string('add_supermarket.html')
         self.assertEqual(response.content.decode(), expected_html)

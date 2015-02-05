@@ -35,3 +35,4 @@ def current_supermarket(request, anyname):
 
 def add_supermarket_page(request):
     return render(request, 'add_supermarket.html')
+
