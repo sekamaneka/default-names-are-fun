@@ -4,17 +4,41 @@
 {% endblock %}
 
 {% block table %}
-        <table class='table table-bordered'>
-        <td>Name</td>
-        <td>Price</td>
-        <td>Category</td>
-        {% for item in items %}
-            <tr>
-                <td>{{ item.i_name }}</td>
-                <td>{{ item.price }}</td>
-                <td>{{ item.category }}</td>
-            </tr>
-        {% endfor %}
+        <table class='table table-bordered table-striped table-condensed'>
+            <div class='container-fluid'>
+                
+                <thead>
+                    <div class='span6'> 
+                        Name
+                    </div>
+                    <div class='span2'>
+                    Menge-Inhalt 
+                    </div>
+                    <div class='span1'>
+                        Aktion Preis
+                    </div>
+                    <div class='span1'>
+                        Normal Preis
+                    </div>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <div class='span6'> 
+                        {{ item.i_name }}
+                    </div>
+                    <div class='span2'>
+                        {{ item.menge }}
+                        {{ item.inhalt }}
+                    </div>
+                    <div class='span1'>
+                        {{ item.aktion_price }}
+                    </div>
+                    <div class='span1'>
+                        {{ item.normal_price }}
+                    </div>
+                    {% endfor %}
+                </tbody>
+            </div>
         </table>
 {% endblock %}
 

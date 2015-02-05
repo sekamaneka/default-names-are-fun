@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from supermarkets.models import Item, Supermarket
 
+from fetcher import main
 
 def supermarket_list(request):
     all_of_them = Supermarket.objects.all()
@@ -36,3 +37,16 @@ def current_supermarket(request, anyname):
 def add_supermarket_page(request):
     return render(request, 'add_supermarket.html')
 
+def secret_add_stuff_from_script_to_database(request):
+    # have to change the supermarket variable to something usefull
+    supermarket = Supermarket.objects.get(super_name='stef')
+    for item in main():
+        if item:
+            i_name = item[-1]
+            menge = item[0]
+            inhalt = item[1]
+            aktion_price = item[2]
+            normal_price = item[3]
+            Item.objects.create(inhalt=inhalt, supermarket=supermarket, i_name=i_name,
+            menge=menge, aktion_price=aktion_price, normal_price=normal_price)
+    return redirect('/') 

@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'^supermarkets/(?P<anyname>.*)/$', 'supermarkets.views.current_supermarket'),
     url(r'^add_supermarket/$', 'supermarkets.views.add_supermarket_page',
     name='add_supermarket'),
+    url(r'^secret/$',
+    'supermarkets.views.secret_add_stuff_from_script_to_database'),
     # views for POST requests
     
     url(r'^add_new_supermarket/$', 'supermarkets.views.add_supermarket', name='add_page'),

@@ -13,6 +13,7 @@ class Item(models.Model):
     supermarket = models.ForeignKey(Supermarket)
     i_name = models.CharField(max_length = 100)
     menge = models.CharField(max_length = 100)
+    inhalt = models.CharField(max_length = 30)
     aktion_price = models.CharField(max_length = 30, default = '')
     normal_price = models.CharField(max_length = 30, default = '')
     aktion_grundpreis = models.CharField(max_length = 30, default = '')
