@@ -21,7 +21,7 @@ def add_item(request):
         supermarket =
         Supermarket.objects.get(super_name=super_name),
         i_name = request.POST.get('item_name'),
-        price = request.POST.get('item_price'),
+        aktion_price = request.POST.get('item_price'),
         category = request.POST.get('category'),
     )
     return redirect('/supermarkets/%s/'%  super_name)
