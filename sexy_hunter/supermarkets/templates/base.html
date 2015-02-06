@@ -20,20 +20,31 @@
                     <a class="brand" href="/">Home</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
-                            <li class="navbar-text">Welcome<li>
+                            <li class="navbar-text">Welcome Summoner<li>
                             <li><a href="/logout">Logout</a></li>
                             <li><a href="/register/">Register</a></li>
                             <li><a href="/login">Login</a></li>
                         </ul>
                         <ul class="nav">
-                                <li><a
-                                    href='/add_supermarket/'>ADHD</a></li>
-                                <li><a href="/about/">About</a></li>
+                            <li><a href='/add_supermarket/'>ADHD</a></li>
+                            <li><a href="/about/">About</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class='row-fluid'>
+                <div class='span2'>
+                    <div class='well sidebar-nav'>
+                        <table class='table table-bordered'>
+                            <tr><td>
+                                <a href='/secret/'>Secret</a>
+                            </tr></td>
+                            <tr><td>
+                                <a href='/supermarkets/Billa'>Billa</a>
+                            <tr></td>
+                        </table>
+                    </div>
+                </div>
                 <div class='span10'>
                     <h1><p class='text-center'>{% block title %}{% endblock %}</p></h1>
                     {% block action %}

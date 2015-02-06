@@ -4,45 +4,34 @@
 {% endblock %}
 
 {% block table %}
-        <table class='table table-bordered table-striped table-condensed'>
-            <div class='container-fluid'>
-                
+        <div class='container-fluid'>
+            <table class='table table-bordered table-striped table-condensed'>
                 <thead>
-                    <div class='span6'> 
-                        Name
-                    </div>
-                    <div class='span2'>
-                    Menge-Inhalt 
-                    </div>
-                    <div class='span1'>
-                        Aktion Preis
-                    </div>
-                    <div class='span1'>
-                        Normal Preis
-                    </div>
+                    <tr>
+                    <td>Name</td>
+                    <td>Menge</td>
+                    <td>Inhalt</td>
+                    <td>Aktion Preis</td>
+                    <td>Normal Preis</td>
+                </tr>
                 </thead>
                 <tbody>
                     {% for item in items %}
-                    <div class='span6'> 
-                        {{ item.i_name }}
-                    </div>
-                    <div class='span2'>
-                        {{ item.menge }}
-                        {{ item.inhalt }}
-                    </div>
-                    <div class='span1'>
-                        {{ item.aktion_price }}
-                    </div>
-                    <div class='span1'>
-                        {{ item.normal_price }}
-                    </div>
+                    <tr>
+                        <td>{{ item.i_name }}</td> 
+                        <td>{{ item.menge }}</td> 
+                        <td>{{ item.inhalt }}</td> 
+                        <td>{{ item.aktion_price }}</td> 
+                        <td>{{ item.normal_price }}</td> 
+                    </tr>
                     {% endfor %}
                 </tbody>
-            </div>
-        </table>
+            </table>
+        </div>
 {% endblock %}
 
-{% block action %}
+
+{% block opencomment%}
     <h2>Give me some items </h2>
     <form method='POST' action='/add_item/'>
     <input name='item_name' placeholder='Enter the name'>
