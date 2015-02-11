@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from supermarkets.models import Item, Supermarket
 from fetcher import main
-from scripts.spar_aktionen import find_links_for_monatsparer_produkts
+from scripts.one_script_to_rule_them_all_spar import get_all_spar_items
 from scripts.fetcher import main
 
 
@@ -62,15 +62,18 @@ def add_items_from_scripts(request, anyname):
                     i_name=i_name,
                     menge=menge,
                     aktion_price=aktion_price,
-                    normal_price=normal_price)
+                    normal_price=normal_price
+                )
     elif anyname == 'Spar':
-        for img, link, name in find_links_for_monatsparer_produkts():
-            Item.objects.create(
-                link=link.strip("[]u'"),
-                image_link=img.strip("[]u'"),
-                # have to figure a way out to escape the unicode to ascii
-                i_name=name.strip("[]u'"),
-                supermarket=supermarket)
+        for items in get_all_spar_items():
+            Item.objects.get_or_create(
+                supermarket=supermarket,
+                i_name=items.get('name'),
+                image_link=items.get('img'),
+                link=items.get('link'),
+                old_price=items.get('old_price'),
+                new_price=items.get('new_price')
+            )
     return redirect('/')
 
 
