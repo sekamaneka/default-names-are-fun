@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 from supermarkets.views import supermarket_list, add_supermarket_page
 from supermarkets.views import current_supermarket
-from supermarkets.models import Supermarket
+from supermarkets.models import Supermarket, Item
 
 
 class HomePageTest(TestCase):
@@ -47,3 +47,21 @@ class SupermarketTest(TestCase):
     def test_supermarket_view(self):
         found = resolve('/supermarkets/%s/' % Supermarket.objects.first())
         self.assertEqual(found.func, current_supermarket)
+
+    def test_supermarket_page_displays_items(self):
+        request = HttpResponse()
+        response = current_supermarket(request, 'Bil')
+        Item.objects.create(supermarket=Supermarket.objects.first(),
+                            i_name='it')
+        self.assertIn('it', response.content.decode())
+
+    def test_supermarkt_page_displays_correct_name(self):
+        request = HttpResponse()
+        response = current_supermarket(request, 'Gala')
+        self.assertIn('Gala', response.content.decode())
+
+    def test_item_field_are_all_working(self):
+        Item.objects.create(supermarket=Supermarket.objects.first(),
+                            i_name='a', menge='b', inhalt='c', aktion_price='d',
+                            normal_price='e', category='f', link='g',
+                            image_link='h')

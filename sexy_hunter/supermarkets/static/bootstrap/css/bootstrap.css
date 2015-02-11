@@ -34,9 +34,7 @@
 .input-block-level {
   display: block;
   width: 100%;
-  min-height: 30px;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
+  min-height: 30px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
 
@@ -223,7 +221,7 @@ textarea {
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Comic Sans MS", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -2009,7 +2007,7 @@ table {
 .table th,
 .table td {
   padding: 8px;
-  line-height: 20px;
+  line-height: 1em;
   text-align: left;
   vertical-align: top;
   border-top: 1px solid #dddddd;

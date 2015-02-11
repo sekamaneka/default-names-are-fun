@@ -6,21 +6,12 @@
 {% block table %}
         <div class='container-fluid'>
             <table class='table table-bordered table-striped table-condensed'>
-                <thead>
-                    <tr>
-                    <td>Name</td>
-                    <td>Menge</td>
-                    <td>Inhalt</td>
-                    <td>Aktion Preis</td>
-                    <td>Normal Preis</td>
-                </tr>
-                </thead>
                 <tbody>
                     {% for item in items %}
                     <tr>
                         <td>{{ item.i_name }}</td> 
-                        <td>{{ item.menge }}</td> 
                         <td>{{ item.inhalt }}</td> 
+                        <td>{{ item.menge }}</td> 
                         <td>{{ item.aktion_price }}</td> 
                         <td>{{ item.normal_price }}</td> 
                     </tr>
@@ -30,6 +21,9 @@
         </div>
 {% endblock %}
 
+{% block secret %}
+    <a href='/secret/{{supermarket.super_name}}/'>Secret</a>
+{% endblock %}
 
 {% block opencomment%}
     <h2>Give me some items </h2>
